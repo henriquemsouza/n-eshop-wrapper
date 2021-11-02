@@ -1,6 +1,6 @@
 {
     "name": "psn-wrapper",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "license": "MIT",
     "author": "Henrique martins de souza",
     "description": "A not official PSN API Wrapper",

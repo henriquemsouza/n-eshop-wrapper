@@ -9,6 +9,12 @@ The currently existing services are
 |--|--|
 | topGames  | returns the top games on psn at the moment, by default returns only 10 items  |
 
+## Install
+```sh
+ npm i psn-wrapper
+ ```
+
+
 
 ## how to use
 ### topGames

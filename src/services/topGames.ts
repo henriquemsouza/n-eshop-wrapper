@@ -1,11 +1,17 @@
 import { baseOptions } from '../domain/baseInterfaces';
 import { callAPI } from '../infra/AxiosHandler';
 import config from '../config.json';
+import { baseInfo } from '../domain/topGamesInterfaces';
 
 const validateId = (gameId: string) => {
   const idValidation = /UP\d{4}-\w{9}_00-\w{16}/g;
   return idValidation.test(gameId.toString());
 };
+
+function calculatePrice(displayPrice: any): any {
+  const result = displayPrice !== 'Free' ? parseFloat(displayPrice.slice(1)) : '0.00';
+  return result;
+}
 
 const parseBasicGameInfo = (game: any) => {
   const pricing = game.default_sku;
@@ -13,7 +19,7 @@ const parseBasicGameInfo = (game: any) => {
   const normalPrice = pricing.display_price !== 'Free' ? pricing.display_price : '0.00';
   const onSale = pricing.rewards.length > 0 && pricing.rewards[0].reward_source_type_id === 2;
 
-  const info = {
+  const info: baseInfo = {
     _id: game.id,
     title: game.name,
     url: `https://store.playstation.com/#!/en-us/games/cid=${game.id}`,
@@ -32,15 +38,13 @@ const parseBasicGameInfo = (game: any) => {
 
     if (!saleInfo.isPlus) {
       if (Number.isNaN(saleInfo.display_price.slice(1))) {
-        info.price = saleInfo.display_price !== 'Free' ? parseFloat(saleInfo.display_price.slice(1)) : '0.00';
+        info.price = calculatePrice(saleInfo.display_price);
       }
       info.strikePrice = normalPrice;
     } else {
-
-      // info.psPlusPrice = saleInfo.display_price !== 'Free' ?
-    //   parseFloat(saleInfo.display_price.slice(1)) : '0.00';
+      info.psPlusPrice = calculatePrice(saleInfo.display_price);
     }
-    // info.discount = parseInt(saleInfo.discount, 10);
+    info.discount = parseInt(saleInfo.discount, 10);
   }
 
   return info;
