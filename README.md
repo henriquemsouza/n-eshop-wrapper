@@ -28,7 +28,7 @@ const top = async () => {
 
  ```
 
-## user as package from git
+## use as package from git
 ```sh
  "psn-wrapper": "ssh://git@github.com:henriquemsouza/psn-wrapper.git"
  ```
