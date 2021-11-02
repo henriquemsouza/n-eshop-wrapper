@@ -6,23 +6,11 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.filter = exports.search = exports.game = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/no-unused-vars */
-const axios_1 = __importDefault(require("axios"));
 const config_json_1 = __importDefault(require("./config.json"));
-const callAPI = (url, params = {}) => {
-    return axios_1.default.get(url, params)
-        .then(response => {
-        if (response.data)
-            return response.data;
-        throw config_json_1.default.nintendoApi.errors.notFound;
-    })
-        .then(json => {
-        return Promise.resolve(json);
-    })
-        .catch(err => Promise.reject(err));
-};
+const AxiosHandler_1 = require("./infra/AxiosHandler");
 const game = (id) => {
     const url = config_json_1.default.nintendoApi.url + config_json_1.default.nintendoApi.routes.game;
-    return callAPI(url);
+    return (0, AxiosHandler_1.callAPI)(url);
 };
 exports.game = game;
 const search = (query, options) => {
@@ -44,7 +32,7 @@ const filter = (options) => {
         price,
         number,
     };
-    return callAPI(url, { params });
+    return (0, AxiosHandler_1.callAPI)(url, { params });
 };
 exports.filter = filter;
 //# sourceMappingURL=index.js.map
