@@ -1,5 +1,5 @@
 
-# Typescript Basic Project template
+# A not official API Wrapper from Nintendo Eshop
 
 
 ## Install

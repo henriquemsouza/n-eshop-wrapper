@@ -3,6 +3,12 @@
     "version": "1.0.0",
     "license": "MIT",
     "author": "Henrique martins de souza",
+    "description": "A not official API Wrapper from Nintendo Eshop",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/henriquemsouza/n-eshop-wrapper.git"
+      },
+
     "main": "dist/index.js",
     "files": [
         "dist"
@@ -26,6 +32,7 @@
         "axios": "^0.24.0"
     },
     "keywords": [
-        "api"
+        "api",
+        "eshop"
     ]
 }
