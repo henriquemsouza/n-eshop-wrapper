@@ -1,6 +1,6 @@
 {
     "nintendoApi": {
-        "url": "https://www.nintendo.com/json/content/get",
+        "url": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/pt-br/19/",
         "routes": {
             "search": "/filter/game",
             "game": "/game/"

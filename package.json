@@ -1,9 +1,9 @@
 {
-    "name": "n-eshop-wrapper",
+    "name": "psn-wrapper",
     "version": "1.0.0",
     "license": "MIT",
     "author": "Henrique martins de souza",
-    "description": "A not official API Wrapper from Nintendo Eshop",
+    "description": "A not official PSN API Wrapper",
     "repository": {
         "type": "git",
         "url": "https://github.com/henriquemsouza/n-eshop-wrapper.git"
@@ -16,6 +16,7 @@
     "scripts": {
         "lint": "eslint src/ --ext .ts",
         "start": "ts-node src/index.ts",
+        "start:temp": "ts-node temp/index.ts",
         "clean": "rm -rf dist/ && rm -rf .build/",
         "build": "yarn clean && tsc"
     },

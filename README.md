@@ -1,5 +1,5 @@
 
-# A not official API Wrapper from Nintendo Eshop
+# A not official PSN API Wrapper 
 
 
 ## Install
@@ -11,3 +11,9 @@ yarn
 ```sh
 yarn start
 ```
+
+
+## user as package
+```sh
+ "n-eshop-wrapper": "ssh://git@github.com:henriquemsouza/n-eshop-wrapper.git"
+ ```
