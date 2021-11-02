@@ -1,15 +1,5 @@
 {
-  "nintendoApi": {
-    "url": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/pt-br/19/",
-    "routes": {
-      "search": "/filter/game",
-      "game": "/game/"
-    },
-    "errors": {
-      "notFound": {
-        "status": 404,
-        "message": "Game not found!"
-      }
-    }
+  "Api": {
+    "baseUrl": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/pt-br/19/"
   }
 }

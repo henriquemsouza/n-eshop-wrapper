@@ -13,7 +13,7 @@ yarn start
 ```
 
 
-## user as package
+## user as package from git
 ```sh
- "n-eshop-wrapper": "ssh://git@github.com:henriquemsouza/n-eshop-wrapper.git"
+ "psn-wrapper": "ssh://git@github.com:henriquemsouza/psn-wrapper.git"
  ```

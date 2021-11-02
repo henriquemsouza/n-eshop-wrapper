@@ -1,7 +1,5 @@
-import { topGames } from "./services/topGames";
+import { topGames } from './services/topGames';
 
-  
 export {
   topGames,
 };
-  

@@ -1,5 +1,5 @@
-import { baseOptions } from "../domain/baseInterfaces";
-declare const topGames: (query: unknown, options: baseOptions) => Promise<{
+import { baseOptions } from '../domain/baseInterfaces';
+declare const topGames: (options: baseOptions) => Promise<{
     _id: any;
     title: any;
     url: string;
@@ -14,4 +14,4 @@ declare const topGames: (query: unknown, options: baseOptions) => Promise<{
         platforms: any;
     };
 }[]>;
-export { topGames };
+export { topGames, };
