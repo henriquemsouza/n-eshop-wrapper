@@ -30,28 +30,28 @@ const callAPI = (url: string, params = {}) => {
   };
 
   export interface baseOptions  {
-    sort: any,
-    direction: any,
-    system: any,
-    limit: any,
-    availability: any,
-    offset: any,
-    category: any,
-    price: any,
-    number: any,
+    sort?: any,
+    direction?: any,
+    system?: any,
+    limit?: any,
+    availability?: any,
+    offset?: any,
+    category?: any,
+    price?: any,
+    number?: any,
   }
 
   export interface options  {
     search: any,
-    sort: any,
-    direction: any,
-    system: any,
-    limit: any,
-    availability: any,
-    offset: any,
-    category: any,
-    price: any,
-    number: any,
+    sort?: any,
+    direction?: any,
+    system?: any,
+    limit?: any,
+    availability?: any,
+    offset?: any,
+    category?: any,
+    price?: any,
+    number?: any,
   }
   
   const filter = (options: options) => {
@@ -85,7 +85,7 @@ const callAPI = (url: string, params = {}) => {
     return callAPI(url, {params});
   };
   
-  module.exports = {
+ export {
     game,
     search,
     filter,
