@@ -2,6 +2,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import Axios from 'axios';
 import config from './config.json';
+import { baseOptions, completeOptions } from './domain/baseInterfaces';
 
 
 const callAPI = (url: string, params = {}) => {
@@ -29,32 +30,8 @@ const callAPI = (url: string, params = {}) => {
     });
   };
 
-  export interface baseOptions  {
-    sort?: any,
-    direction?: any,
-    system?: any,
-    limit?: any,
-    availability?: any,
-    offset?: any,
-    category?: any,
-    price?: any,
-    number?: any,
-  }
 
-  export interface options  {
-    search: any,
-    sort?: any,
-    direction?: any,
-    system?: any,
-    limit?: any,
-    availability?: any,
-    offset?: any,
-    category?: any,
-    price?: any,
-    number?: any,
-  }
-  
-  const filter = (options: options) => {
+  const filter = (options: completeOptions) => {
     const {
       search,
       sort,
