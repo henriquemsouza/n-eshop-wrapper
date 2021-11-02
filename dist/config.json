@@ -1,5 +1,6 @@
 {
     "Api": {
-        "baseUrl": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/pt-br/19/"
+        "baseUrl": "https://store.playstation.com/store/api/chihiro/00_09_000/container/BR/pt-br/19/",
+        "urlContainer": "ttps://store.playstation.com/store/api/chihiro/00_09_000/tumbler/BR/en/19/"
     }
 }

@@ -1,12 +1,12 @@
 {
     "name": "psn-wrapper",
-    "version": "1.0.1",
+    "version": "1.0.3",
     "license": "MIT",
     "author": "Henrique martins de souza",
     "description": "A not official PSN API Wrapper",
     "repository": {
         "type": "git",
-        "url": "https://github.com/henriquemsouza/n-eshop-wrapper.git"
+        "url": "https://github.com/henriquemsouza/psn-wrapper.git"
     },
     "main": "dist/index.js",
     "files": [

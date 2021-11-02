@@ -12,31 +12,19 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.topGames = void 0;
+exports.gameByTitle = void 0;
 const AxiosHandler_1 = require("../infra/AxiosHandler");
-const config_json_1 = __importDefault(require("../config.json"));
 const utils_1 = require("./shared/utils");
-const filter = (options) => __awaiter(void 0, void 0, void 0, function* () {
-    const { sort, direction, system = 'switch', limit = 10, availability, offset, category, price, number, } = options;
-    const url = `${config_json_1.default.Api.baseUrl}STORE-MSF77008-TOPGAMES?size=${limit}`;
-    const params = {
-        system,
-        sort,
-        direction,
-        limit,
-        offset,
-        availability,
-        category,
-        price,
-        number,
-    };
-    const { data } = yield (0, AxiosHandler_1.callAPI)(url, { params });
-    return data;
-});
-const topGames = (options) => __awaiter(void 0, void 0, void 0, function* () {
-    const filterResult = yield filter(Object.assign({}, options));
-    const result = (0, utils_1.processMultipleResultGameInfo)(filterResult, options.limit);
+const config_json_1 = __importDefault(require("../config.json"));
+const gameByTitle = (title, limit = 10) => __awaiter(void 0, void 0, void 0, function* () {
+    if (typeof title !== 'string') {
+        throw new Error('invalid game title');
+    }
+    const apiUrl = config_json_1.default.Api.urlContainer;
+    const request = `${apiUrl + encodeURIComponent((0, utils_1.normalizeTitle)(title))}?suggested_size=5&mode=game&mode=film&mode=tv&mode=live_event`;
+    const { data } = yield (0, AxiosHandler_1.callAPI)(request, {});
+    const result = (0, utils_1.processMultipleResultGameInfo)(data, limit);
     return result;
 });
-exports.topGames = topGames;
-//# sourceMappingURL=topGames.js.map
+exports.gameByTitle = gameByTitle;
+//# sourceMappingURL=gameByTitle.js.map
