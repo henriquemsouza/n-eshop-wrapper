@@ -1,5 +1,5 @@
 export interface baseInfo {
-    _id: string,
+    id: string,
     title: string,
     url: string,
     price: any,

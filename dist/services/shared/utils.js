@@ -19,7 +19,7 @@ const parseBasicGameInfo = (game) => {
     const normalPrice = pricing.display_price !== 'Free' ? pricing.display_price : '0.00';
     const onSale = pricing.rewards.length > 0 && pricing.rewards[0].reward_source_type_id === 2;
     const info = {
-        _id: game.id,
+        id: game.id,
         title: game.name,
         url: `https://store.playstation.com/#!/en-us/games/cid=${game.id}`,
         price: normalPrice,
