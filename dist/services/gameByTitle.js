@@ -16,11 +16,12 @@ exports.gameByTitle = void 0;
 const AxiosHandler_1 = require("../infra/AxiosHandler");
 const utils_1 = require("./shared/utils");
 const config_json_1 = __importDefault(require("../config.json"));
-const gameByTitle = (title, limit = 10) => __awaiter(void 0, void 0, void 0, function* () {
+const gameByTitle = (title, options) => __awaiter(void 0, void 0, void 0, function* () {
     if (typeof title !== 'string') {
         throw new Error('invalid game title');
     }
-    const apiUrl = config_json_1.default.Api.urlContainer;
+    const { limit = 10, language = 'en' } = options;
+    const apiUrl = `${config_json_1.default.Api.urlBase}tumbler/BR/${language}/19/`;
     const request = `${apiUrl + encodeURIComponent((0, utils_1.normalizeTitle)(title))}?suggested_size=5&mode=game&mode=film&mode=tv&mode=live_event`;
     const { data } = yield (0, AxiosHandler_1.callAPI)(request, {});
     const result = (0, utils_1.processMultipleResultGameInfo)(data, limit);

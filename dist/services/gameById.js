@@ -16,12 +16,13 @@ exports.gameById = void 0;
 const AxiosHandler_1 = require("../infra/AxiosHandler");
 const utils_1 = require("./shared/utils");
 const config_json_1 = __importDefault(require("../config.json"));
-const gameById = (id, limit = 10) => __awaiter(void 0, void 0, void 0, function* () {
+const gameById = (id, options) => __awaiter(void 0, void 0, void 0, function* () {
     if (typeof id !== 'string') {
         throw new Error('invalid game id');
     }
-    const apiUrl = config_json_1.default.Api.baseUrl;
-    const request = `${apiUrl}${id}`;
+    const { limit = 10, language = 'pt-br' } = options;
+    const apiUrl = config_json_1.default.Api.urlBase;
+    const request = `${apiUrl}container/BR/${language}/19/${id}`;
     const { data } = yield (0, AxiosHandler_1.callAPI)(request, {});
     const result = (0, utils_1.processMultipleResultGameInfo)(data, limit);
     return result;

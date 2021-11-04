@@ -5,13 +5,15 @@
 The currently existing services are
 
 
-| SERVICES|  DESCRIPTION|
-|--|--|
-| topGames  | Returns the top games on psn at the moment  |
-| gameByTitle  | Search the game by name |
-| gameById  | Search the game by id  |
+| SERVICES|  DESCRIPTION| DEFAULT |
+|--|--|--|
+| topGames  | Returns the top games on psn at the moment  | language = 'pt-br'|
+| gameByTitle  | Search the game by name | language = 'en'|
+| gameById  | Search the game by id  | language = 'pt-br'|
 
-**  by default each service returns only 10 items 
+**  By default each service returns only 10 items.
+
+*** Language and limit are optional .
 
 ## Install
 ```sh
@@ -26,7 +28,7 @@ ___
 import { topGames } from 'psn-wrapper';
 
 const top = async () => {
-  const result = await topGames({ limit: 20 });
+  const result = await topGames({ limit: 20, language = 'pt-br' });
   console.log(result);
 };
 
@@ -37,7 +39,7 @@ const top = async () => {
 import { gameByTitle } from 'psn-wrapper';
 
 const games = async () => {
-  const result = await gameByTitle('House of Ashes ', 20);
+  const result = await gameByTitle('House of Ashes ', { limit: 20, language = 'en' });
   console.log(result);
 };
  ```
@@ -47,7 +49,7 @@ const games = async () => {
 import { gameById } from 'psn-wrapper';
 
 const games = async () => {
-  const result = await gameById('UP0700-CUSA08789_00-SHINOBISTRIKER01', 20);
+  const result = await gameById('UP0700-CUSA08789_00-SHINOBISTRIKER01', { limit: 20, language = 'pt-br' });
   console.log(result);
 };
  ```

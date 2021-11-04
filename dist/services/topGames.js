@@ -17,18 +17,11 @@ const AxiosHandler_1 = require("../infra/AxiosHandler");
 const config_json_1 = __importDefault(require("../config.json"));
 const utils_1 = require("./shared/utils");
 const filter = (options) => __awaiter(void 0, void 0, void 0, function* () {
-    const { sort, direction, system = 'switch', limit = 10, availability, offset, category, price, number, } = options;
-    const url = `${config_json_1.default.Api.baseUrl}STORE-MSF77008-TOPGAMES?size=${limit}`;
+    const { limit = 10, language = 'pt-br', } = options;
+    const baseUrl = `${config_json_1.default.Api.urlBase}container/BR/${language}/19/`;
+    const url = `${baseUrl}STORE-MSF77008-TOPGAMES?size=${limit}`;
     const params = {
-        system,
-        sort,
-        direction,
         limit,
-        offset,
-        availability,
-        category,
-        price,
-        number,
     };
     const { data } = yield (0, AxiosHandler_1.callAPI)(url, { params });
     return data;

@@ -5,29 +5,16 @@ import { processMultipleResultGameInfo } from './shared/utils';
 
 const filter = async (options: baseOptions) => {
   const {
-    sort,
-    direction,
-    system = 'switch',
     limit = 10,
-    availability,
-    offset,
-    category,
-    price,
-    number,
+    language = 'pt-br',
   } = options;
 
-  const url = `${config.Api.baseUrl}STORE-MSF77008-TOPGAMES?size=${limit}`;
+  const baseUrl = `${config.Api.urlBase}container/BR/${language}/19/`;
+
+  const url = `${baseUrl}STORE-MSF77008-TOPGAMES?size=${limit}`;
 
   const params = {
-    system,
-    sort,
-    direction,
     limit,
-    offset,
-    availability,
-    category,
-    price,
-    number,
   };
 
   const { data } = await callAPI(url, { params });
